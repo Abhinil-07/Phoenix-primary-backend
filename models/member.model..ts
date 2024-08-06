@@ -13,6 +13,10 @@ const MemberModel = new mongoose.Schema({
     type: String,
     unique: true,
   },
+  sessionToken: {
+    type: String,
+    unique: true,
+  },
 });
 
 const Member = mongoose.model("Member", MemberModel);
