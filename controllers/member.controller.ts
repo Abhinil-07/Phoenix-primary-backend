@@ -33,4 +33,20 @@ const getMemberDetails = async (req: Request, res: Response) => {
     });
   }
 };
-export { memberSignup, getMemberDetails };
+
+const getMemberDetailsUsingEmail = async (req: Request, res: Response) => {
+  try {
+    const { email } = req.body;
+    const member = await Member.findOne({ email });
+    return res.status(200).json({
+      sucess: true,
+      member,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      sucess: false,
+      error: "Server Error",
+    });
+  }
+};
+export { memberSignup, getMemberDetails, getMemberDetailsUsingEmail };
