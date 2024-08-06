@@ -3,9 +3,9 @@ import { Member } from "../models/member.model.";
 
 const memberSignup = async (req: Request, res: Response) => {
   try {
-    const { name, studentID } = req.body;
+    const { name, studentID, email } = req.body;
     console.log(name);
-    const member = await Member.create({ name, studentID });
+    const member = await Member.create({ name, studentID, email });
     return res.status(200).json({
       sucess: true,
       data: member,
