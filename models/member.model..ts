@@ -13,8 +13,9 @@ const MemberModel = new mongoose.Schema({
     type: String,
     unique: true,
   },
-  sessionToken: {
+  email: {
     type: String,
+    required: true,
     unique: true,
   },
 });
